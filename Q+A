@@ -1,0 +1,10 @@
+Why would you want state to only be accessible within the component (this.state)?
+- Anytime you make a react component, state is nested inside that component. You can share that state with other components using props. You can also modify that state within other components.
+
+If it's possible to create a component with both functional/Class based approaches, which should you take?
+- If you are making something from scratch or is new, use functional components as it's fast and easy. 
+
+You are only going to be using Class based components if you are working on a project that already uses them.
+
+Do you ever extend an established Class rather than React.Component?
+- Absolutely. Extends is about object oriented programming - it's not just a React thing.
