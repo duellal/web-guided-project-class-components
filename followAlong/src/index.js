@@ -51,6 +51,7 @@ class App extends React.Component {
     }
   }
 
+  //Toggling crossing out the item on the grocery list:
   toggleItem = (id) => {
     const newGroceries = this.state.groceries.map(item => {
       if (item.id === id) {
@@ -67,13 +68,28 @@ class App extends React.Component {
     })
   }
 
+  //Adding an item to the shopping list:
+  addItem = (title) => {
+    const newItem = {
+      name: title,
+      id: this.state.groceries.length,
+      purchased: false
+    }
+
+    const newGroceries = [...this.state.groceries, newItem]
+
+    this.setState({
+      groceries: newGroceries
+    })
+  }
+
   // Class methods to update state
   render() {
     return (
       <div className="App">
         <div className="header">
           <h1>Shopping List</h1>
-          <ListForm />
+          <ListForm addItem={this.addItem} />
         </div>
         <GroceryList groceries={this.state.groceries} toggleItem={this.toggleItem} />
         <button
