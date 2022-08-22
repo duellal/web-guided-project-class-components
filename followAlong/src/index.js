@@ -83,6 +83,18 @@ class App extends React.Component {
     })
   }
 
+  // Clearing crossed out items from list:
+  clearPurchased = () => {
+    //.filter(): keeps anything that passes (is true) for the condition set - in other words if the condition set is equal to true, it keeps the element in the array
+    const newGroceries = this.state.groceries.filter((item) => {
+      return (item.purchased === false)
+    })
+
+    this.setState({
+      groceries: newGroceries
+    })
+  }
+
   // Class methods to update state
   render() {
     return (
@@ -93,7 +105,7 @@ class App extends React.Component {
         </div>
         <GroceryList groceries={this.state.groceries} toggleItem={this.toggleItem} />
         <button
-          // onClick={handleClick} 
+          onClick={this.clearPurchased}
           className="clear-btn">
           Clear Purchased
         </button>
