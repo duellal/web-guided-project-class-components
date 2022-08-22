@@ -66,9 +66,6 @@ class App extends React.Component {
       groceries: newGroceries
     })
   }
-  // handleClick = () => {
-
-  // }
 
   // Class methods to update state
   render() {
