@@ -8,4 +8,3 @@ You are only going to be using Class based components if you are working on a pr
 
 Do you ever extend an established Class rather than React.Component?
 - Absolutely. Extends is about object oriented programming - it's not just a React thing.
-

@@ -12,7 +12,7 @@ const groceries = [
     purchased: false
   },
   {
-    name: 'Torillas',
+    name: 'Tortillas',
     id: 124,
     purchased: false
   },
@@ -35,21 +35,56 @@ const groceries = [
     name: 'Granola',
     id: 1248,
     purchased: false
+  },
+  {
+    name: 'Yogurt',
+    id: 1251,
+    purchased: false
   }
 ];
 
 class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      groceries: groceries
+    }
+  }
+
+  toggleItem = (id) => {
+    const newGroceries = this.state.groceries.map(item => {
+      if (item.id === id) {
+        return {
+          ...item,
+          purchased: !item.purchased
+        }
+      }
+      else { return (item) }
+    })
+
+    this.setState({
+      groceries: newGroceries
+    })
+  }
+  // handleClick = () => {
+
+  // }
+
   // Class methods to update state
   render() {
     return (
       <div className="App">
         <div className="header">
-           <h1>Shopping List</h1>
-           <ListForm />
-         </div>
-        <GroceryList groceries={groceries} />
-        <button className="clear-btn">Clear Purchased</button>
-       </div>
+          <h1>Shopping List</h1>
+          <ListForm />
+        </div>
+        <GroceryList groceries={this.state.groceries} toggleItem={this.toggleItem} />
+        <button
+          // onClick={handleClick} 
+          className="clear-btn">
+          Clear Purchased
+        </button>
+      </div>
     );
   }
 }
